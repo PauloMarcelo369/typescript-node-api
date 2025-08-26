@@ -2,14 +2,15 @@
   "name": "node-ts-api",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:functional": "jest --projects ./test --runInBand",
     "build": "tsc",
     "startP": "npm run build && node dist/src/index.js",
     "start": "ts-node src/index.ts",
     "lint": "eslint ./src ./test --ext .ts",
-    "lint:fix": "eslint ./src ./test --ext .ts --fix"
+    "lint:fix": "eslint ./src ./test --ext .ts --fix",
+    "dev:app": "ts-node src/index",
+    "dev:test": "ts-node test/index"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +18,17 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "^9.34.0",
+    "@types/jest": "^30.0.0",
+    "@types/mocha": "^10.0.10",
     "@types/module-alias": "^2.0.4",
     "@types/node": "^24.3.0",
+    "@types/supertest": "^6.0.3",
     "@typescript-eslint/eslint-plugin": "^8.41.0",
     "@typescript-eslint/parser": "^8.41.0",
     "eslint": "^9.34.0",
+    "jest": "^30.0.5",
+    "supertest": "^7.1.4",
+    "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.41.0"

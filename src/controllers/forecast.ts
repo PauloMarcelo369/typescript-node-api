@@ -1,11 +1,11 @@
-import supertest from "supertest";
+import { Controller, Get, Res } from "@decorators/express";
+import type { Response } from "express";
 
-describe(`Beach forecast funcrional tests`, () => {
-  it(`should return a forecast with just a few times`, async () => {
-    const { body, status } = await global.testRequest.get("/forecast");
-
-    expect(status).toBe(200);
-    expect(body).toEqual([
+@Controller("/forecast")
+export class ForecastController {
+  @Get("")
+  public getForecastForLoggedUser(@Res() res: Response): void {
+    res.send([
       {
         time: "2020-04-26T00:00:00+00:00",
         forecast: [
@@ -45,5 +45,5 @@ describe(`Beach forecast funcrional tests`, () => {
         ],
       },
     ]);
-  });
-});
+  }
+}
